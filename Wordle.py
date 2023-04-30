@@ -19,8 +19,6 @@ alphabet = ["QWERTYUIOP",
             "ASDFGHJKL"
             "ZXCVBNM"]
 
-letter_x = 85
-letter_y = 12
 letter_size = 75
 
 guesses_count = 0
@@ -29,8 +27,6 @@ guesses = [[]]*6
 current_guess = []
 current_guess_string = ""
 current_letter_bg_x = 110
-
-indicators = []
 
 game_result = ""
 
@@ -69,27 +65,6 @@ class Letter:
         pygame.display.update()
 
 
-class Indicator:
-    def __init__(self,x,y,letter):
-        pass
-    def draw(self):
-        pass
-
-def check_guess(guess_to_check):
-    pass
-
-def play_again():
-    pass
-
-def reset():
-    pass
-
-def create_new_letter():
-    pass
-
-def delete():
-    pass
-
 game = True
 while game:
     if game_result != "":
@@ -98,19 +73,5 @@ while game:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RETURN:
-                if game_result != "":
-                    reset()
-                else:
-                    if len(current_guess_string) == 5 and current_guess_string.lower() in WORDS:
-                        check_guess(current_guess)
-            elif event.key == pygame.K_BACKSPACE:
-                if len(current_guess_string)>0:
-                    delete_letter()
-            else:
-                key_pressed = event.unicode.upper()
-                if key_pressed in "QWERTYUIOPASDFGHJKLZXCVBNM" and key_pressed !="":
-                    if len(current_guess_string) < 5:
-                        create_new_letter
+        
 
